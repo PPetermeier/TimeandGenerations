@@ -1,26 +1,25 @@
-import seaborn as sns
 import matplotlib.pyplot as plt
 from supervenn import supervenn
 
 
-def plot_1_1():
+def plot_1_1() -> None:
+    "Creates and saves the plots"
     # Set figure size and coloring
     plt.figure(figsize=(8, 4))
     plt.rcParams['axes.prop_cycle'] = plt.cycler(color=plt.cm.Accent.colors)
     sets = [
-        {8},
-        {7},
         {6},
-        {5, 6, 7, 8},
+        {5},
         {4},
-        {3, 4, 5, 6, 7, 8},
-        {2, 3, 4, 5, 6, 7, 8},
-        {1, 2, 3, 4, 5, 6, 7, 8},
+        {4, 5, 6},
+        {3},
+        {3,  4, 5, 6},
+        {2, },
+        {1, 2, 3, 4, 5, 6},
     ]
     sets.reverse()
     labels = ["Human Activity", "Services", "Assets",
               "Enabling Assets", "Capital", "Human", "Produced", "Social"]
-    supervenn = supervenn(sets, labels, side_plots=False,
-                          min_width_for_annotation=1000, sets_ordering="size", reverse_sets_order=False, )
+    supervenn(sets, labels, side_plots=False,
+              min_width_for_annotation=1000, sets_ordering="size", reverse_sets_order=False, )
     plt.savefig(fname="Supervenn.png")
-    plt.show()
