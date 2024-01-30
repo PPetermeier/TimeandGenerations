@@ -8,18 +8,20 @@ def plot_1_1() -> None:
     plt.figure(figsize=(8, 4))
     plt.rcParams['axes.prop_cycle'] = plt.cycler(color=plt.cm.Accent.colors)
     sets = [
-        {6},
-        {5},
-        {4},
-        {4, 5, 6},
+        {2, 3, 4, 5, 6, 7, },
+        {2},
+        {3, 4, 5, 6, 7, },
         {3},
-        {3,  4, 5, 6},
-        {2, },
-        {1, 2, 3, 4, 5, 6},
+        {4, 5, 6, 7, },
+        {4},
+        {5, 6, 7},
+        {5},
+        {6},
+        {7},
     ]
-    sets.reverse()
-    labels = ["Human Activity", "Services", "Assets",
-              "Enabling Assets", "Capital", "Human", "Produced", "Social"]
+    labels = ["Human Activity", "Non-Economic Activity",  "Economic Activity", "Services", "Assets",
+              "Enabling Assets", "Capital", "Human", "Produced", "Natural"]
     supervenn(sets, labels, side_plots=False,
               min_width_for_annotation=1000, sets_ordering="size", reverse_sets_order=False, )
     plt.savefig(fname="Supervenn.png")
+    plt.show()
