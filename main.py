@@ -1,6 +1,4 @@
-import pandas as pd
-import numpy as np
-from plotting import plot_1_1
+from plotting import simulate_capital_conversion, simulate_capital_extraction
 
 if __name__ == '__main__':
-    plot_1_1()
+    simulate_capital_extraction()
